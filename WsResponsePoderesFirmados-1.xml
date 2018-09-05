@@ -1,0 +1,22 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <SOAP:Body>
+      <m:respuestaPoderesFirmados xmlns:m="http://www.webml.org/webservices/wsdl">
+         <numeroProceso></numeroProceso>
+         <idAntecedente></idAntecedente>
+         <DatosRegistro>
+         	<Poder>
+         		<consecutivo></consecutivo>
+         		<idRegistroFacultad></idRegistroFacultad>
+         	</Poder>
+         </DatosRegistro>
+         <urlRupaXml></urlRupaXml>
+         <urlRupaPdf></urlRupaPdf>
+         <SIGER>
+         	<Poder>
+         		<urlXml></urlXml>
+         		<urlPdf></urlPdf>
+         	</Poder>
+         </SIGER>
+      </m:respuestaPoderesFirmados>
+   </SOAP:Body>
+</SOAP:Envelope>

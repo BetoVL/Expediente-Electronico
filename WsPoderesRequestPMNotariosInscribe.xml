@@ -1,0 +1,60 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <SOAP:Body>
+      <m:inscripcionPoderesPMRequest xmlns:m="http://www.webml.org/webservices/wsdl">
+         <rfcNotario>?</rfcNotario>
+         <!--Generado por el notario para su control interno-->
+         <IdTramite>?</IdTramite>
+         <InformacionSociedad>
+            <expedienteElectronico>?</expedienteElectronico>
+            <folioMercantil>?</folioMercantil>
+            <rfcPM>?</rfcPM>
+            <denominacionSocial>?</denominacionSocial>
+         </InformacionSociedad>
+         <InformacionPoder>
+            <fechaInstrumento>?</fechaInstrumento>
+            <!--true or false-->
+            <isEscritura>?</isEscritura>>
+            <numeroInstrumento></numeroInstrumento>
+            <!--Optional-->
+            <volumen>?</volumen>
+            <!--Optional-->
+            <libro>?</libro>
+            <!--Optional-->
+            <foja>?</foja>
+         </InformacionPoder>
+         <!--Optional-->
+         <Otorgamientos>
+            <PoderOtorgado>
+               <consecutivo>?</consecutivo>
+               <tieneRFC>?</tieneRFC>
+               <rfcPF>?</rfcPF>
+               <curp>?</curp>
+               <!--optional-->
+               <cargo>?</cargo>
+               <Facultades>
+                  <tipoFacultad></tipoFacultad>
+                  <comentarios></comentarios>
+               </Facultades>
+               <fechaOtorgamiento>?</fechaOtorgamiento>
+               <!--Optional-->
+               <fechaRevocacion>?</fechaRevocacion>
+            </PoderOtorgado>
+         </Otorgamientos>
+         <!--Optional-->
+         <OtrosActos>
+            <acto>
+               <consecutivo>?</consecutivo>
+               <tipoActo>?</tipoActo>
+               <idAntecendente>?</idAntecendente>
+               <isTotal></isTotal>
+               <Facultades>
+                  <idRegistroFacultad>?</idRegistroFacultad>
+                  <tipoFacultad></tipoFacultad>
+                  <fechaRevocacion>?</fechaRevocacion>
+               </Facultades>
+            </acto>
+         </OtrosActos>
+         
+      </m:inscripcionPoderesPMRequest>
+   </SOAP:Body>
+</SOAP:Envelope>

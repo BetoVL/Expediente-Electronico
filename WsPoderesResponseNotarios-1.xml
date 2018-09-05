@@ -1,0 +1,11 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <SOAP:Body>
+      <m:inscripcionPoderesResponse xmlns:m="http://www.webml.org/webservices/wsdl">
+         <numeroProceso></numeroProceso>
+         <!--true or false -->
+         <recepcionCorrecta></recepcionCorrecta>
+         <Mensaje></Mensaje>
+
+      </m:inscripcionPoderesPMRequest>
+   </SOAP:Body>
+</SOAP:Envelope>

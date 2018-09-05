@@ -1,0 +1,14 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <SOAP:Body>
+      <m:obtenerPoderesSociedadRequest xmlns:m="http://www.webml.org/webservices/wsdl">
+         <InformacionSociedad>
+            <!--Opcional-->
+            <expedienteElectronico>?</expedienteElectronico>
+            <!--Opcional-->
+            <folioMercantil>?</folioMercantil>
+            <!--Opcional-->
+            <rfc>?</rfc>
+         </InformacionSociedad>
+      </m:obtenerPoderesSociedadRequest>
+   </SOAP:Body>
+</SOAP:Envelope>

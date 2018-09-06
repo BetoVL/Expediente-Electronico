@@ -1,7 +1,8 @@
 <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <SOAP:Body>
-      <m:inscripcionPoderesPFRequest xmlns:m="http://www.webml.org/webservices/wsdl">
+      <m:inscripcionPoderesPMRequest xmlns:m="http://www.webml.org/webservices/wsdl">
          <rfcNotario>?</rfcNotario>
+         <rfcPersonalNotario>?</rfcPersonalNotario>
          <!--Generado por el notario para su control interno-->
          <IdTramite>?</IdTramite>
          <InformacionOtorgante>
@@ -20,16 +21,17 @@
             <!--Optional-->
             <foja>?</foja>
          </InformacionPoder>
-         <!--Optional-->
          <Otorgamientos>
             <PoderOtorgado>
-               <consecutivo>?</consecutivo>
+               <!--true or false-->
                <tieneRFC>?</tieneRFC>
+               <!--optional-->
                <rfcPF>?</rfcPF>
                <curp>?</curp>
                <!--optional-->
                <cargo>?</cargo>
                <Facultades>
+                  <consecutivo></consecutivo>
                   <tipoFacultad></tipoFacultad>
                   <comentarios></comentarios>
                </Facultades>
@@ -38,21 +40,20 @@
                <fechaRevocacion>?</fechaRevocacion>
             </PoderOtorgado>
          </Otorgamientos>
-         <!--Optional-->
+         <!--optional-->
          <OtrosActos>
             <acto>
-               <consecutivo></consecutivo>
                <tipoActo>?</tipoActo>
                <idAntecendente>?</idAntecendente>
                <idPoderAsociado>?</idPoderAsociado>
+               <!--true or false-->
                <isTotal></isTotal>
                <Facultades>
-                  <tipoFacultad></tipoFacultad>
+                  <idRegistroFacultad></idRegistroFacultad>
                   <fechaRevocacion>?</fechaRevocacion>
                </Facultades>
             </acto>
          </OtrosActos>
-         
-      </m:inscripcionPoderesPFRequest>
+      </m:inscripcionPoderesPMRequest>
    </SOAP:Body>
 </SOAP:Envelope>

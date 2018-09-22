@@ -1,0 +1,591 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="xml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AperturaExpedienteElectronico">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FedatarioPublico">
+                <xs:annotation>
+                  <xs:documentation>Constitución de la sociedad mercantil</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="rfcFe">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="13"/>
+                          <xs:maxLength value="13"/>
+                          <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="curpFe">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="18"/>
+                          <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element type="xs:boolean" name="isNotario">
+                      <xs:annotation>
+                        <xs:documentation>Cuando el valor es verdadero indica que el instrumento lo genera un Notario Público, en caso de que sea falso indica que es un Corredor</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="nombreFe"/>
+                    <xs:element type="xs:string" name="primerApellidoFe"/>
+                    <xs:element type="xs:string" name="segundoApellidoFe"/>
+                    <xs:element type="xs:string" name="entidadFederativaFedatario"/>
+                    <xs:element type="xs:string" name="municipioFedatario"/>
+                    <xs:element type="xs:string" name="numeroOficina">
+                      <xs:annotation>
+                        <xs:documentation>Notaria o Correduria</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="personalFedatario">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="RFC">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="13"/>
+                          <xs:maxLength value="13"/>
+                          <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="curp">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="18"/>
+                          <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="nombre"/>
+                    <xs:element type="xs:string" name="primerApellido"/>
+                    <xs:element type="xs:string" name="segundoApellido"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DoRS">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Cud"/>
+                    <xs:element type="xs:string" name="denominacionAutorizada"/>
+                    <xs:element type="xs:string" name="regimenSocietario"/>
+                    <xs:element type="xs:dateTime" name="FechaAutorizacion"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RPC">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:boolean" name="isCapitalVariable"/>
+                    <xs:element name="instrumento">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="tipoInstrumento"/>
+                          <xs:element type="xs:string" name="numero"/>
+                          <xs:element type="xs:string" name="volumen"/>
+                          <xs:element type="xs:string" name="libro"/>
+                          <xs:element type="xs:dateTime" name="fechaInstrumento"/>
+                          <xs:element type="xs:dateTime" name="fechaDeConstitucion">
+                            <xs:annotation>
+                              <xs:documentation>En caso de que se haya constituido por contrato privado</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="duracionSociedad"/>
+                    <xs:element name="domicilioSociedad">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="codigoPostal">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="5"/>
+                                <xs:maxLength value="5"/>
+                                <xs:pattern value="^[0-9]{5}$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="entidadFederativa"/>
+                          <xs:element type="xs:string" name="municipio"/>
+                          <xs:element type="xs:string" name="localidad"/>
+                          <xs:element type="xs:string" name="colonia"/>
+                          <xs:element type="xs:string" name="calle"/>
+                          <xs:element type="xs:string" name="entreCalleYCalle"/>
+                          <xs:element type="xs:string" name="numeroExterior"/>
+                          <xs:element type="xs:string" name="numeroInterior"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="objetoSocialPrincipal"/>
+                    <xs:element name="montoCapitalVariable">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:fractionDigits value="4"/>
+                          <xs:minInclusive value="0.0000"/>
+                          <xs:whiteSpace value="collapse"/>
+                          <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="montoCapitalFijo">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:fractionDigits value="4"/>
+                          <xs:minInclusive value="0.0000"/>
+                          <xs:whiteSpace value="collapse"/>
+                          <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="importeCapitalSocial">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:fractionDigits value="4"/>
+                          <xs:minInclusive value="0.0000"/>
+                          <xs:whiteSpace value="collapse"/>
+                          <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element type="xs:boolean" name="tieneExpresionValorNominal"/>
+                    <xs:element name="estructuraAccionaria">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="personaFisica">
+                            <xs:annotation>
+                              <xs:documentation>Accionista o Representante Legal</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="rfcPF">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:minLength value="13"/>
+                                      <xs:maxLength value="13"/>
+                                      <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="curpPF">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:minLength value="18"/>
+                                      <xs:maxLength value="18"/>
+                                      <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="nombrePF"/>
+                                <xs:element type="xs:string" name="primerApellidoPF"/>
+                                <xs:element type="xs:string" name="segundoApellidoPF"/>
+                                <xs:element name="fechaNacimientoPF">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="nacionalidadPF"/>
+                                <xs:element name="domicilio">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="codigoPostal">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="5"/>
+                                            <xs:maxLength value="5"/>
+                                            <xs:pattern value="^[0-9]{5}$"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element type="xs:string" name="entidadFederativa"/>
+                                      <xs:element type="xs:string" name="municipio"/>
+                                      <xs:element type="xs:string" name="localidad"/>
+                                      <xs:element type="xs:string" name="colonia"/>
+                                      <xs:element type="xs:string" name="calle"/>
+                                      <xs:element type="xs:string" name="entreCalleYCalle"/>
+                                      <xs:element type="xs:string" name="numeroExterior"/>
+                                      <xs:element type="xs:string" name="numeroInterior"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Acciones">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="serie">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="tipoSerie"/>
+                                            <xs:element type="xs:string" name="numeroAcciones"/>
+                                            <xs:element name="valorDeLaAccion">
+                                              <xs:simpleType>
+                                                <xs:restriction base="xs:decimal">
+                                                  <xs:fractionDigits value="4"/>
+                                                  <xs:minInclusive value="0.0000"/>
+                                                  <xs:whiteSpace value="collapse"/>
+                                                  <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                                                </xs:restriction>
+                                              </xs:simpleType>
+                                            </xs:element>
+                                            <xs:element name="totalCapital">
+                                              <xs:simpleType>
+                                                <xs:restriction base="xs:decimal">
+                                                  <xs:fractionDigits value="4"/>
+                                                  <xs:minInclusive value="0.0000"/>
+                                                  <xs:whiteSpace value="collapse"/>
+                                                  <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                                                </xs:restriction>
+                                              </xs:simpleType>
+                                            </xs:element>
+                                            <xs:element type="xs:string" name="participacionPF"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="personaMoral">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="rfcPM">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:minLength value="12"/>
+                                      <xs:maxLength value="12"/>
+                                      <xs:pattern value="^([A-ZÑ&]{3}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="DoRSAccionista"/>
+                                <xs:element name="fechaConstitucion">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="nacionalidadPM"/>
+                                <xs:element name="domicilio">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="codigoPostal">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="5"/>
+                                            <xs:maxLength value="5"/>
+                                            <xs:pattern value="^[0-9]{5}$"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element type="xs:string" name="entidadFederativa"/>
+                                      <xs:element type="xs:string" name="municipio"/>
+                                      <xs:element type="xs:string" name="localidad"/>
+                                      <xs:element type="xs:string" name="colonia"/>
+                                      <xs:element type="xs:string" name="calle"/>
+                                      <xs:element type="xs:string" name="entreCalleYCalle"/>
+                                      <xs:element type="xs:string" name="numeroExterior"/>
+                                      <xs:element type="xs:string" name="numeroInterior"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Acciones">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="serie">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="tipoSeriePM"/>
+                                            <xs:element type="xs:string" name="numeroAccionesPM"/>
+                                            <xs:element name="valorDeLaAccionPM">
+                                              <xs:simpleType>
+                                                <xs:restriction base="xs:decimal">
+                                                  <xs:fractionDigits value="4"/>
+                                                  <xs:minInclusive value="0.0000"/>
+                                                  <xs:whiteSpace value="collapse"/>
+                                                  <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                                                </xs:restriction>
+                                              </xs:simpleType>
+                                            </xs:element>
+                                            <xs:element name="totalCapitalPM">
+                                              <xs:simpleType>
+                                                <xs:restriction base="xs:decimal">
+                                                  <xs:fractionDigits value="4"/>
+                                                  <xs:minInclusive value="0.0000"/>
+                                                  <xs:whiteSpace value="collapse"/>
+                                                  <xs:pattern value="[0-9]{1,18}(.[0-9]{1,4})?"/>
+                                                </xs:restriction>
+                                              </xs:simpleType>
+                                            </xs:element>
+                                            <xs:element type="xs:string" name="participacionPM"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="administracion">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:boolean" name="isColegiada"/>
+                          <xs:element type="xs:string" name="facultades"/>
+                          <xs:element name="nombramientos">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:boolean" name="tieneRfc"/>
+                                <xs:element name="rfc">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:minLength value="13"/>
+                                      <xs:maxLength value="13"/>
+                                      <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="curp">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:minLength value="18"/>
+                                      <xs:maxLength value="18"/>
+                                      <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="nombre"/>
+                                <xs:element type="xs:string" name="primerApellido"/>
+                                <xs:element type="xs:string" name="segundoApellido"/>
+                                <xs:element type="xs:string" name="nombramiento"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="nombramientos">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="rfcNom">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="13"/>
+                                <xs:maxLength value="13"/>
+                                <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="curpNom">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="18"/>
+                                <xs:maxLength value="18"/>
+                                <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="nombreNom"/>
+                          <xs:element type="xs:string" name="primerApellidoNom"/>
+                          <xs:element type="xs:string" name="segundoApellidoNom"/>
+                          <xs:element name="fechaNacimientoNom">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="nacionalidadNom"/>
+                          <xs:element type="xs:string" name="cargoNom"/>
+                          <xs:element name="PoderOtorgado">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Facultades">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:int" name="consecutivo"/>
+                                      <xs:element type="xs:int" name="tipoFacultad"/>
+                                      <xs:element name="descripcionFacultad">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="0"/>
+                                            <xs:maxLength value="1000"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="fechaOtorgamiento">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="fechaRevocacion">
+                                  <xs:annotation>
+                                    <xs:documentation>Optional</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="apoderados">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="rfcApo">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="13"/>
+                                <xs:maxLength value="13"/>
+                                <xs:pattern value="^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="curpApo">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="18"/>
+                                <xs:maxLength value="18"/>
+                                <xs:pattern value="^[A-ZÑ&]{1}[AEIOU]{1}[A-ZÑ&]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-ZÑ&]{1}[0-9]{1}​"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="nombreApo"/>
+                          <xs:element type="xs:string" name="primerApellidoApo"/>
+                          <xs:element type="xs:string" name="segundoApellidoApo"/>
+                          <xs:element name="fechaNacimientoApo">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="nacionalidadApo"/>
+                          <xs:element name="PoderOtorgado">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Facultades">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="consecutivo"/>
+                                      <xs:element type="xs:int" name="tipoFacultad"/>
+                                      <xs:element name="descripcionFacultad">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="0"/>
+                                            <xs:maxLength value="1000"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="fechaOtorgamiento">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="fechaRevocacion">
+                                  <xs:annotation>
+                                    <xs:documentation>Optional</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:pattern value="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)[0-9][0-9])$"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="organoVigilancia">
+                      <xs:annotation>
+                        <xs:documentation>Revisar integración del órganos de vigilancia</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="otrasAutorizaciones"/>
+                    <xs:element type="xs:boolean" name="isConstitucionSucesiva"/>
+                    <xs:element name="sociedadDerivada">
+                      <xs:annotation>
+                        <xs:documentation>Opcional</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:boolean" name="isFusion"/>
+                          <xs:element type="xs:boolean" name="isEscision"/>
+                          <xs:element name="sociedades">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="folioMercantil"/>
+                                <xs:element type="xs:string" name="denominacion"/>
+                                <xs:element name="domicilio">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="codigoPostal">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="5"/>
+                                            <xs:maxLength value="5"/>
+                                            <xs:pattern value="^[0-9]{5}$"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element type="xs:string" name="entidadFederativa"/>
+                                      <xs:element type="xs:string" name="municipio"/>
+                                      <xs:element type="xs:string" name="localidad"/>
+                                      <xs:element type="xs:string" name="colonia"/>
+                                      <xs:element type="xs:string" name="calle"/>
+                                      <xs:element type="xs:string" name="entreCalleYCalle"/>
+                                      <xs:element type="xs:string" name="numeroExterior"/>
+                                      <xs:element type="xs:string" name="numeroInterior"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

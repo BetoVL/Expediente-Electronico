@@ -5,7 +5,7 @@
         <xs:element name="AperturaExpedienteElectronico">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="FedatarioPublico">
+              <xs:element name="FedatarioPublico" maxOccurs="unbounded" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Constitución de la sociedad mercantil</xs:documentation>
                 </xs:annotation>
@@ -47,7 +47,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="personalFedatario">
+              <xs:element name="personalFedatario" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="RFC">
@@ -74,7 +74,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="DoRS">
+              <xs:element name="DoRS" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element type="xs:string" name="Cud"/>
@@ -84,11 +84,11 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="RPC">
+              <xs:element name="RPC" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element type="xs:boolean" name="isCapitalVariable"/>
-                    <xs:element name="instrumento">
+                    <xs:element name="instrumento" maxOccurs="unbounded" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element type="xs:string" name="tipoInstrumento"/>
@@ -163,7 +163,7 @@
                     <xs:element name="estructuraAccionaria">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="personaFisica">
+                          <xs:element name="personaFisica" maxOccurs="unbounded" minOccurs="0">
                             <xs:annotation>
                               <xs:documentation>Accionista o Representante Legal</xs:documentation>
                             </xs:annotation>
@@ -259,7 +259,7 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <xs:element name="personaMoral">
+                          <xs:element name="personaMoral" maxOccurs="unbounded" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
                                 <xs:element name="rfcPM">
@@ -344,7 +344,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="administracion">
+                    <xs:element name="administracion" maxOccurs="unbounded" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element type="xs:boolean" name="isColegiada"/>
@@ -381,7 +381,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="nombramientos">
+                    <xs:element name="nombramientos" maxOccurs="unbounded" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="rfcNom">
@@ -417,7 +417,7 @@
                           <xs:element name="PoderOtorgado">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="Facultades">
+                                <xs:element name="Facultades" maxOccurs="unbounded" minOccurs="0">
                                   <xs:complexType>
                                     <xs:sequence>
                                       <xs:element type="xs:int" name="consecutivo"/>
@@ -456,7 +456,7 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="apoderados">
+                    <xs:element name="apoderados" maxOccurs="unbounded" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="rfcApo">
@@ -491,7 +491,7 @@
                           <xs:element name="PoderOtorgado">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="Facultades">
+                                <xs:element name="Facultades" maxOccurs="unbounded" minOccurs="0">
                                   <xs:complexType>
                                     <xs:sequence>
                                       <xs:element type="xs:string" name="consecutivo"/>
